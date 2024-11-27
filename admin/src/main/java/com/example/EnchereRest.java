@@ -1,3 +1,5 @@
+package com.example;
+
 import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.ws.rs.*;
@@ -55,3 +57,4 @@ public class EnchereRest {
     em.persist(enchere);
     return Response.status(Response.Status.CREATED).entity(enchere).build();
 }*/
+}
