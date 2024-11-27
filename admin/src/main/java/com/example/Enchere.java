@@ -1,4 +1,4 @@
-package main.java.example;
+package com.example;
 
 import java.util.Date;
 
@@ -6,14 +6,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Enchere {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
     private Long id;
 
     private String nom;
@@ -22,7 +21,11 @@ public class Enchere {
 
     private int montantEnch;
 
+    @ManyToOne
     private Utilisateur utilisateur;
+
+    @ManyToOne
+    private Pokemon pokemon;
     
 
     public Enchere() {}
@@ -74,7 +77,13 @@ public class Enchere {
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
+    public Pokemon getPokemon() {
+        return pokemon;
+    }
 
+    public void setPokemon(Pokemon pokemon) {
+        this.pokemon = pokemon;
+    }
 
 
 
