@@ -1,4 +1,4 @@
-package main.java.com.example;
+package com.example;
 
 
 import java.util.ArrayList;
@@ -15,15 +15,13 @@ public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
     private Long id;
 
     private String nom;
 
     private String password ;
 
-    private int limcoins = 1000;
+    private int limcoins;
 
 
     private List <Enchere> Encheres = new ArrayList<>() ;
@@ -31,8 +29,7 @@ public class Utilisateur {
 
 
     public Utilisateur(){}
-    public Utilisateur(Long id, String nom, String password, int Limcoins) {
-        this.id=id;
+    public Utilisateur(String nom, String password, int Limcoins) {
         this.nom=nom;
         this.password=password;
     }
