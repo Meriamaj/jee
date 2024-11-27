@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import main.java.example.Enchere;
 
 @Entity
 public class Utilisateur {
@@ -34,7 +35,6 @@ public class Utilisateur {
         this.id=id;
         this.nom=nom;
         this.password=password;
-        this.limcoins=limcoins;
     }
 
 

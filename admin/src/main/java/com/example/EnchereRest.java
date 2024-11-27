@@ -1,18 +1,14 @@
 package main.java.com.example;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.annotation.processing.Generated;
 
 import jakarta.persistence.EntityManager;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
 import jakarta.ws.rs.core.Response;
 import main.java.example.Enchere;
 
@@ -43,10 +39,16 @@ public class EnchereRest {
         Pokemon pokemon=em.find(Pokemon.class,enchere.getPokemon().getId()) ;
         if (user == null || pokemon == null) {
             return Response.status(Response.Status.BAD_REQUEST)
-            .entity('utilisateur ou pokemon non trouvée').build();
-
+            .entity("Utilisateur ou Pokémon introuvable").build();
+        }          
+        if (! user.Encherir(enchere.getMontantEnch())) {
+        return Response.status(Response.Status.BAD_REQUEST)
+        .entity("Montant non suffissants").build();
     }
-    if (!Utilisateur.Encherir(enchere.getMontantEnch())) {
-        return
-    }
+    enchere.setUtilisateur(user);
+    enchere.setDate(date);
+    enchere.setPokemon(pokemon);
+    em.persist(enchere);
+    return Response.status(Response.Status.CREATED).entity(enchere).build();
+}
 }
