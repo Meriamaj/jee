@@ -14,4 +14,8 @@ public class Administrateur {
         return "Hello from Quarkus REST";
     }
     
+<<<<<<< HEAD
+=======
+
+>>>>>>> 864d0313d6ee828128a70f66dfdd867ba4ddd9da
 }
