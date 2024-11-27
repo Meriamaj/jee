@@ -14,7 +14,5 @@ public class Administrateur {
         return "Hello from Quarkus REST";
     }
     
-    public static void main(String[] args) {
-        
-    }
+
 }
