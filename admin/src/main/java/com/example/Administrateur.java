@@ -1,12 +1,25 @@
 package com.example;
 
+
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Inject;
 import java.util.ArrayList;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.transaction.Transactional;
 
+@ApplicationScoped
 public class Administrateur {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     private String name;
+
+    @Inject
+    EntityManager em;
 
     ArrayList<Utilisateur> mesUtilisateur;
     
@@ -20,10 +33,11 @@ public class Administrateur {
     public Administrateur() {
     }
 
-
+    @Transactional
     public Utilisateur createUtilisateur(String name, String password, int limcoins){
         Utilisateur user = new Utilisateur(name,password,limcoins);
         mesUtilisateur.add(user);
+        em.persist(user);
         return user;
     }
 
