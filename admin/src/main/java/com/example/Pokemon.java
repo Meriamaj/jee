@@ -104,7 +104,7 @@ public class Pokemon {
 
     public void setMisePrix(int misePrix) {
         int reel = getValReel();
-        int seuilInferieur = (int) (reel * 0.4 );
+        int seuilInferieur = (int) (reel * 0.6 );
         int seuilSuperieur = (int) (reel * 1.4 );
         Random random = new Random();
         this.misePrix = random.nextInt(seuilSuperieur - seuilInferieur + 1) + seuilInferieur;;
