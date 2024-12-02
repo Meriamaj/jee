@@ -31,7 +31,6 @@ public class Utilisateur {
     public Utilisateur(String nom, String password, int Limcoins) {
         this.nom=nom;
         this.password=password;
-        this.limcoins=limcoins;
     }
 
 
